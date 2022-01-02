@@ -15,8 +15,9 @@ Interpretation of "Radiance" for the Seesüchte festival as interactive installa
 4. This is now your upstream branch (this means you can push and pull from it).
 5. Create a new branch with "git checkout -b \<your-branch>" (local branch, where you want to work on) when you want to develop new features.
 6. Use "git checkout <your-**TEAM**-branch>", make sure it is up to date "git pull" and then "git merge \<your-branch>" to merge your work inside of the team
-7. When something is ready or needs revision by the "tech team" push it to <your-**TEAM**-branch> on github and create a pull request to the "dev" branch.
-8. The "dev" branch is where all branches come together and the "tech-team" is responsible to combine all the systems
-9. Dev team merges dev changes with master once a component is tested and without any bugs.
+7. When something is ready to be combined with the remaining systems push it to <your-**TEAM**-branch> on github and create a pull request to the "dev" branch.
+8. If you have any problems push your changes to <your-**TEAM**-branch> and the dev team will pull your changes and review them. 
+9. The "dev" branch is where all branches come together and the "tech-team" is responsible to combine all the systems
+10. Dev team merges dev changes with master once a component is tested and without any bugs.
 
 ### Please keep Commit messages clear and to the point: [Guideline for good Commit Messages](https://www.freecodecamp.org/news/writing-good-commit-messages-a-practical-guide/)
