@@ -20,24 +20,27 @@ public class ServerSendData : MonoBehaviour {
 	#endregion 	
 		
 	void Start () { 		
-		// Start TcpServer background thread 		
-		tcpListenerThread = new Thread (new ThreadStart(ListenForIncommingRequests)); 		
-		tcpListenerThread.IsBackground = true; 		
-		tcpListenerThread.Start(); 	
+		StartListenerThread();
 	}  	
 	
+
+  void StartListenerThread(){
+    tcpListenerThread = new Thread (new ThreadStart(ListenForIncomingRequests)); 		
+		tcpListenerThread.IsBackground = true; 		
+		tcpListenerThread.Start(); 	
+  }
 	// Update is called once per frame
 	void Update () { 		
 		if (Input.GetKeyDown(KeyCode.Space)) {             
-			SendMessage();         
+			SendMessage(345.45f);         
 		} 	
 	}  	
 	
-	private void ListenForIncommingRequests () { 		
+	private void ListenForIncomingRequests () { 		
 		try { 			
 			// Create listener on localhost port 8052. 			
 			tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8052); 			
-			tcpListener.Start();              
+			tcpListener.Start();                           			
 			Debug.Log("Server is listening");              
 			Byte[] bytes = new Byte[1024];  			
 			while (true) { 				
@@ -55,7 +58,7 @@ public class ServerSendData : MonoBehaviour {
 						} 					
 					} 				
 				} 			
-			} 		
+			} 				
 		} 		
 		catch (SocketException socketException) { 			
 			Debug.Log("SocketException " + socketException.ToString()); 		
@@ -64,7 +67,7 @@ public class ServerSendData : MonoBehaviour {
 	/// <summary> 	
 	/// Send message to client using socket connection. 	
 	/// </summary> 	
-	private void SendMessage() { 		
+	private void SendMessage(float value) { 		
 		if (connectedTcpClient == null) {             
 			return;         
 		}  		
@@ -75,10 +78,10 @@ public class ServerSendData : MonoBehaviour {
 			if (stream.CanWrite) {                 
 				string serverMessage = "This is a message from your server."; 			
 				// Convert string message to byte array.                 
-				byte[] serverMessageAsByteArray = Encoding.ASCII.GetBytes(serverMessage); 				
+				byte[] serverValueAsByteArray = BitConverter.GetBytes(value); 				
 				// Write byte array to socketConnection stream.               
-				stream.Write(serverMessageAsByteArray, 0, serverMessageAsByteArray.Length);               
-				Debug.Log("Server sent his message - should be received by client");           
+				stream.Write(serverValueAsByteArray, 0, serverValueAsByteArray.Length);               
+				Debug.Log("Server sent value to Client");           
 			}       
 		} 		
 		catch (SocketException socketException) {             
