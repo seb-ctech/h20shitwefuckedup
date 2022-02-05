@@ -10,6 +10,7 @@ Button::Button(int pin){
 void Button::tick(int m){
   if(m % tickRate == 0){
     readPin();
+    sendMessage("a");
   }
 }
 
@@ -27,5 +28,5 @@ void Button::readPin(){
 }
 
 void Button::handleValue(){
-  writeValue(fsrReading);
+  
 }

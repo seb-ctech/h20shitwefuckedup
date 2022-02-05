@@ -12,7 +12,7 @@ public:
 
 private:
 
-  int inputPin = 0;     // the FSR and 10K pulldown are connected to a0
-  int fsrReading;     // the analog reading from the FSR resistor divider
-  int tickRate = 100;
+  int inputPin = 0;
+  int fsrReading; 
+  int tickRate = 200;
 };
