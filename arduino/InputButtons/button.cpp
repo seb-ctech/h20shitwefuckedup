@@ -13,8 +13,8 @@ void Button::tick(int m){
   }
 }
 
-void Button::sendValue(int v){
-  Serial.print(v);
+void Button::writeValue(int v){
+  Serial.write(v);
 }
 
 void Button::sendMessage(char const* msg){
@@ -27,18 +27,5 @@ void Button::readPin(){
 }
 
 void Button::handleValue(){
-
-  sendMessage("Analog reading = ");
-  sendValue(fsrReading);
-  if (fsrReading < 10) {
-    sendMessage(" - No pressure\r\n");
-  } else if (fsrReading < 200) {
-    sendMessage(" - Light touch\r\n");
-  } else if (fsrReading < 500) {
-    sendMessage(" - Light squeeze\r\n");
-  } else if (fsrReading < 800) {
-    sendMessage(" - Medium squeeze\r\n");
-  } else {
-    sendMessage(" - Big squeeze\r\n");
-  }
+  writeValue(fsrReading);
 }

@@ -4,7 +4,7 @@ class Button {
 
 public:
   Button(int pin);
-  void sendValue(int value);
+  void writeValue(int value);
   void sendMessage(char const* messsage);
   void readPin();
   void tick(int milliseconds);
