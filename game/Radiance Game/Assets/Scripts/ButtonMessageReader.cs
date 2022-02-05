@@ -7,6 +7,7 @@
  */
 
 using UnityEngine;
+using System;
 using System.Collections;
 
 /**
@@ -15,27 +16,36 @@ using System.Collections;
 public class ButtonMessageReader : MonoBehaviour
 {
     public SerialController serialController;
-
+    private ButtonEventDispatcher buttonDispatcher;
     // Initialization
     void Start()
     {
-        serialController = GameObject.Find("SerialController").GetComponent<SerialController>();
+        buttonDispatcher = gameObject.GetComponent<ButtonEventDispatcher>();
 	}
 
     // Executed each frame
     void Update()
     {
         string message = serialController.ReadSerialMessage();
-
         if (message == null)
             return;
-
         // Check if the message is plain data or a connect/disconnect event.
         if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_CONNECTED))
             Debug.Log("Connection established");
         else if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_DISCONNECTED))
-            Debug.Log("Connection attempt failed or disconnection detected");
-        else
-            Debug.Log("Message arrived: " + message);
+            Debug.Log("Connection attempt failed or disconnection detected"); 
+        else ParseMessage(message);
     }
+
+    private void ParseMessage(string message)
+    {
+        string[] protocol = message.Split(':');
+        if(protocol.Length > 1){
+            int buttonIndex = Int32.Parse(protocol[0]);
+            int buttonValue = Int32.Parse(protocol[1]);
+            buttonDispatcher.ProcessButtonInput(buttonIndex, buttonValue);
+        }
+    }
+
+
 }
