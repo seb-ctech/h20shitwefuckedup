@@ -1,7 +1,6 @@
 #include "button.h"
 #include "Arduino.h"
 
-
 Button::Button(int pin){
   inputPin = pin;
 }
@@ -14,12 +13,12 @@ void Button::tick(int m){
   }
 }
 
-void Button::writeValue(int v){
-  Serial.write(v);
+void Button::sendValue(int v){
+  Serial.println(v);
 }
 
 void Button::sendMessage(char const* msg){
-  Serial.print(msg);
+  Serial.println(msg);
 }
 
 void Button::readPin(){
@@ -28,5 +27,10 @@ void Button::readPin(){
 }
 
 void Button::handleValue(){
-  
+
+  Serial.print("b");
+  Serial.print(inputPin);
+  Serial.print(":");
+  sendValue(fsrReading);
+
 }
