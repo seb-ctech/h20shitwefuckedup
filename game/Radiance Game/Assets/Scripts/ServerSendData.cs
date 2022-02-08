@@ -1,91 +1,119 @@
 using System;
-using System.Collections; 
-using System.Collections.Generic; 
-using System.Net; 
-using System.Net.Sockets; 
-using System.Text; 
-using System.Threading; 
-using UnityEngine;  
+using System.Collections;
+using System.Collections.Generic;
+using System.Net;
+using System.Net.Sockets;
+using System.Text;
+using System.Threading;
+using UnityEngine;
 
 /* 
 
 This is the Network component that Allows other Applications to connect and request data.
 
 */
-public class ServerSendData : MonoBehaviour {  	
-	#region private members 	
-	private TcpListener tcpListener; 
-	private Thread tcpListenerThread;  	
-	private TcpClient connectedTcpClient; 	
-	#endregion 	
-		
-	void Start () { 		
-		StartListenerThread();
-	}  	
-	
+public class ServerSendData : MonoBehaviour
+{
+    #region private members 	
+    private TcpListener tcpListener;
+    private Thread tcpListenerThread;
+    private TcpClient connectedTcpClient;
 
-  void StartListenerThread(){
-    tcpListenerThread = new Thread (new ThreadStart(ListenForIncomingRequests)); 		
-		tcpListenerThread.IsBackground = true; 		
-		tcpListenerThread.Start(); 	
-  }
-	// Update is called once per frame
-	void Update () { 		
-		if (Input.GetKeyDown(KeyCode.Space)) {             
-			SendMessage(345.45f);         
-		} 	
-	}  	
-	
-	private void ListenForIncomingRequests () { 		
-		try { 			
-			// Create listener on localhost port 8052. 			
-			tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8052); 			
-			tcpListener.Start();                           			
-			Debug.Log("Server is listening");              
-			Byte[] bytes = new Byte[1024];  			
-			while (true) { 				
-				using (connectedTcpClient = tcpListener.AcceptTcpClient()) { 					
-					// Get a stream object for reading 					
-					using (NetworkStream stream = connectedTcpClient.GetStream()) { 						
-						int length; 						
-						// Read incomming stream into byte arrary. 						
-						while ((length = stream.Read(bytes, 0, bytes.Length)) != 0) { 							
-							var incommingData = new byte[length]; 							
-							Array.Copy(bytes, 0, incommingData, 0, length);  							
-							// Convert byte array to string message. 							
-							string clientMessage = Encoding.ASCII.GetString(incommingData); 							
-							Debug.Log("client message received as: " + clientMessage); 						
-						} 					
-					} 				
-				} 			
-			} 				
-		} 		
-		catch (SocketException socketException) { 			
-			Debug.Log("SocketException " + socketException.ToString()); 		
-		}     
-	}  	
-	/// <summary> 	
-	/// Send message to client using socket connection. 	
-	/// </summary> 	
-	private void SendMessage(float value) { 		
-		if (connectedTcpClient == null) {             
-			return;         
-		}  		
-		
-		try { 			
-			// Get a stream object for writing. 			
-			NetworkStream stream = connectedTcpClient.GetStream(); 			
-			if (stream.CanWrite) {                 
-				string serverMessage = "This is a message from your server."; 			
-				// Convert string message to byte array.                 
-				byte[] serverValueAsByteArray = BitConverter.GetBytes(value); 				
-				// Write byte array to socketConnection stream.               
-				stream.Write(serverValueAsByteArray, 0, serverValueAsByteArray.Length);               
-				Debug.Log("Server sent value to Client");           
-			}       
-		} 		
-		catch (SocketException socketException) {             
-			Debug.Log("Socket exception: " + socketException);         
-		} 	
-	} 
+    private float testCounter;
+    #endregion
+
+    void Start()
+    {
+        StartListenerThread();
+        testCounter = 0;
+    }
+
+
+    void StartListenerThread()
+    {
+        tcpListenerThread = new Thread(new ThreadStart(ListenForIncomingRequests));
+        tcpListenerThread.IsBackground = true;
+        tcpListenerThread.Start();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+        }
+        if (Time.frameCount % 25 == 0)
+        {
+
+            float a = UnityEngine.Random.Range(-1.0f, 1.0f);
+            SendMessage(testCounter);
+            testCounter += 0.01f;
+        }
+        // Debug.Log(a);
+    }
+
+    private void ListenForIncomingRequests()
+    {
+        try
+        {
+            // Create listener on localhost port 8052. 			
+            tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), 8052);
+            tcpListener.Start();
+            Debug.Log("Server is listening");
+            Byte[] bytes = new Byte[1024];
+            while (true)
+            {
+                using (connectedTcpClient = tcpListener.AcceptTcpClient())
+                {
+                    // Get a stream object for reading 					
+                    using (NetworkStream stream = connectedTcpClient.GetStream())
+                    {
+                        int length;
+                        // Read incomming stream into byte arrary. 						
+                        while ((length = stream.Read(bytes, 0, bytes.Length)) != 0)
+                        {
+                            var incommingData = new byte[length];
+                            Array.Copy(bytes, 0, incommingData, 0, length);
+                            // Convert byte array to string message. 							
+                            string clientMessage = Encoding.ASCII.GetString(incommingData);
+                            Debug.Log("client message received as: " + clientMessage);
+                        }
+                    }
+                }
+            }
+        }
+        catch (SocketException socketException)
+        {
+            Debug.Log("SocketException " + socketException.ToString());
+        }
+    }
+    /// <summary> 	
+    /// Send message to client using socket connection. 	
+    /// </summary> 	
+    private void SendMessage(float value)
+    {
+        if (connectedTcpClient == null)
+        {
+            return;
+        }
+
+        try
+        {
+            // Get a stream object for writing. 			
+            NetworkStream stream = connectedTcpClient.GetStream();
+            if (stream.CanWrite)
+            {
+                string serverMessage = value.ToString();
+                // Convert string message to byte array.                 
+                // byte[] serverValueAsByteArray = BitConverter.GetBytes(serverMessage);
+                byte[] serverValueAsByteArray = Encoding.ASCII.GetBytes(serverMessage);
+                // Write byte array to socketConnection stream.               
+                stream.Write(serverValueAsByteArray, 0, serverValueAsByteArray.Length);
+                Debug.Log(serverMessage);
+            }
+        }
+        catch (SocketException socketException)
+        {
+            Debug.Log("Socket exception: " + socketException);
+        }
+    }
 }
