@@ -10,10 +10,11 @@ public class ForceTest : MonoBehaviour
     private Rigidbody rb;
     private bool buttonPress_up;
     private bool buttonPress_left;
-    private bool buttonPress_right;
+    private bool buttonPress_right, buttonPress_down;
     private float delta;
+    private bool zn_1, zn_2, zn_3, zn_4;
 
-    private float upForce = 1.0f;
+    private float upForce = 0.2f;
     // Start is called before the first frame update
     public float noiseFactor;
     void Start()
@@ -23,6 +24,7 @@ public class ForceTest : MonoBehaviour
         buttonPress_up = false;
         buttonPress_left = false;
         buttonPress_right = false;
+        buttonPress_down = false;
 
     }
 
@@ -69,19 +71,85 @@ public class ForceTest : MonoBehaviour
             buttonPress_right = true;
         }
 
+        if (Input.GetKey("down"))
+        {
+            buttonPress_down = true;
+        }
+
         delta += 1.0f;
     }
     void FixedUpdate()
     {
-        if (buttonPress_up == true)
+
+        if (buttonPress_up == true && zn_1)
         {
 
             rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            buttonPress_up = false;
 
+        }
+        else if (buttonPress_left && zn_2)
+        {
+            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            buttonPress_left = false;
+        }
+        else if (buttonPress_right && zn_3)
+        {
+            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            buttonPress_right = false;
+        }
+        else if (buttonPress_down && zn_4)
+        {
+            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            buttonPress_down = false;
         }
 
 
     }
+
+    void OnTriggerEnter(Collider zone)
+    {
+
+        if (zone.gameObject.name == "Zone_1")
+        {
+            Debug.Log("Collision detetcted hi lucas with" + zone.gameObject.name);
+            zn_1 = true;
+        }
+        else if (zone.gameObject.name == "Zone_2")
+        {
+            zn_2 = true;
+        }
+        else if (zone.gameObject.name == "Zone_3")
+        {
+            zn_3 = true;
+        }
+        else if (zone.gameObject.name == "Zone_4")
+        {
+            zn_4 = true;
+        }
+    }
+
+    void OnTriggerExit(Collider zone)
+    {
+        if (zone.gameObject.name == "Zone_1")
+        {
+            Debug.Log("Collision exit " + zone.gameObject.name);
+            zn_1 = false;
+        }
+        else if (zone.gameObject.name == "Zone_2")
+        {
+            zn_2 = false;
+        }
+        else if (zone.gameObject.name == "Zone_3")
+        {
+            zn_3 = false;
+        }
+        else if (zone.gameObject.name == "Zone_4")
+        {
+            zn_4 = false;
+        }
+    }
+
     // void AddNoiseOffset()
     // {
     //     Vector3 noise = new Vector3(
