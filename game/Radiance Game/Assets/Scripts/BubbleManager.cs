@@ -5,19 +5,32 @@ using UnityEngine.UI;
 
 public class BubbleManager : MonoBehaviour {
 
-    public Button button1;
-    public ParticleSystem particle;
+    public Button[] buttons;
+    public ParticleSystem[] particleSystems;
+    public float buttonStrength = 0.5f;
 
     // Start is called before the first frame update
     void Start()
     {
-        Button btn = button1.GetComponent<Button>();
-		btn.onClick.AddListener(StartParticles);
-        particle.Stop();
+        if(particleSystems.Length == buttons.Length){
+            for (int i=0; i<buttons.Length; i++){
+                Button btn = buttons[i].GetComponent<Button>();
+                ParticleSystem particle = particleSystems[i];
+            
+                btn.onClick.AddListener(delegate{StartParticles(particle,buttonStrength);});
+                particleSystems[i].Stop();
+            }
+        }
+        else{
+            Debug.Log("Error: Number of Buttons and Particle Systems do not match");
+        }
+
     }
 
-    void StartParticles()
+    void StartParticles(ParticleSystem particle,float buttonStrength)
     {
+        var emission = particle.emission;
+        emission.rateOverTime = buttonStrength*20.0f;
         particle.Play();
     }
 }
