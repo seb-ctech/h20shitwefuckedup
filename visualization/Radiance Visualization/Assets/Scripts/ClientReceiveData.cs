@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -13,6 +14,8 @@ This is the Network component that Allows connects to the Server and requests da
 
 */
 public class ClientReceiveData : MonoBehaviour {  	
+	public String serverIp = "172.23.25.147";
+	public int serverPort = 10005;
 	#region private members 	
 	private TcpClient socketConnection; 	
 	private Thread clientReceiveThread; 	
@@ -34,7 +37,7 @@ public class ClientReceiveData : MonoBehaviour {
 	}  	
 	private void ListenForData() { 		
 		try { 			
-			socketConnection = new TcpClient("localhost", 10000);  			
+			socketConnection = new TcpClient(serverIp, serverPort);
 			Byte[] bytes = new Byte[4];             
 			while (true) { 				
 				// Get a stream object for reading 				
