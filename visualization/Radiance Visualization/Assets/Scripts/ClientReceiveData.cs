@@ -34,7 +34,7 @@ public class ClientReceiveData : MonoBehaviour {
 	}  	
 	private void ListenForData() { 		
 		try { 			
-			socketConnection = new TcpClient("localhost", 8052);  			
+			socketConnection = new TcpClient("localhost", 10000);  			
 			Byte[] bytes = new Byte[4];             
 			while (true) { 				
 				// Get a stream object for reading 				
