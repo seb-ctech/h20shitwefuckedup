@@ -18,6 +18,7 @@ public class ServerSendData : MonoBehaviour
     private TcpListener tcpListener;
     private Thread tcpListenerThread;
     private TcpClient connectedTcpClient;
+    public String lanIp;
     public int port = 10000;
     private float testCounter;
     #endregion
@@ -56,7 +57,7 @@ public class ServerSendData : MonoBehaviour
         try
         {
             // Create listener on localhost port 8052. 			
-            tcpListener = new TcpListener(IPAddress.Parse("127.0.0.1"), port);
+            tcpListener = new TcpListener(IPAddress.Parse(lanIp), port);
             tcpListener.Start();
             Debug.Log("Server is listening on port " + port);
             Byte[] bytes = new Byte[1024];
