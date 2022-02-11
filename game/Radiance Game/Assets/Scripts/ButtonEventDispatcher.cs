@@ -29,7 +29,8 @@ public class ButtonEventDispatcher : MonoBehaviour
     // Update is called once per frame
 
 
-    public void ProcessButtonInput(int index, int value){
+    public void ProcessButtonInput(int index, int value)
+    {
         float normalize = Mathf.Min(value / 1000f, 1.0f);
         // Debug.Log("Button " + index + " value is: " + normalize);
         buttonValues[index] = normalize;
@@ -37,45 +38,60 @@ public class ButtonEventDispatcher : MonoBehaviour
         EvaluateButtonPress(mainButton);
     }
 
-    void EvaluateButtonPress(float value){
+    void EvaluateButtonPress(float value)
+    {
         bool wasPressed = buttonPressed;
-        if (value > 0.2){
+        if (value > 0.2)
+        {
             buttonPressed = true;
-        } else {
+        }
+        else
+        {
             buttonPressed = false;
         }
 
-        if (buttonPressed && !wasPressed){
+        if (buttonPressed && !wasPressed)
+        {
             Debug.Log("Button Pressed!");
             record = true;
-        } else if (!buttonPressed && wasPressed) {
+        }
+        else if (!buttonPressed && wasPressed)
+        {
             EmitButtonPress();
         }
 
-        if(record){
-            if(tickCount <= maxTicks){
+        if (record)
+        {
+            EventButtonPressed.Invoke(value);
+            if (tickCount <= maxTicks)
+            {
                 accForce += value;
                 tickCount++;
-            } else {
-                EmitButtonPress();
+            }
+            else
+            {
+                // EmitButtonPress();
             }
         }
     }
 
-    void EmitButtonPress(){
+    void EmitButtonPress()
+    {
         float force = tickCount > 0 ? accForce / tickCount : 0.0f;
         EventButtonPressed.Invoke(force);
         ResetButtonEvaluation();
         Debug.Log("Button Released " + force);
     }
 
-    void ResetButtonEvaluation(){
+    void ResetButtonEvaluation()
+    {
         record = false;
         accForce = 0.0f;
         tickCount = 0;
     }
 
-    public ButtonEvent GetEvent(){
+    public ButtonEvent GetEvent()
+    {
         return EventButtonPressed;
     }
 

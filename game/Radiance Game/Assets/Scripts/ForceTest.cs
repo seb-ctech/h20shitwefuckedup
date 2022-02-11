@@ -13,19 +13,22 @@ public class ForceTest : MonoBehaviour
     private bool buttonPress_right, buttonPress_down;
     private float delta;
     private bool zn_1, zn_2, zn_3, zn_4;
+    private ButtonEvent button;
 
-    private float upForce = 0.7f;
+    private float upForce = 100.0f;
     // Start is called before the first frame update
     public float noiseFactor;
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+
         delta = 0.0f;
         buttonPress_up = false;
         buttonPress_left = false;
         buttonPress_right = false;
         buttonPress_down = false;
-
+        button = GameObject.Find("ButtonHandler").GetComponent<ButtonEventDispatcher>().GetEvent();
+        button.AddListener(PushButton);
     }
 
     // Update is called once per frame
@@ -77,6 +80,15 @@ public class ForceTest : MonoBehaviour
         }
 
         delta += 1.0f;
+    }
+
+    void PushButton(float value)
+    {
+        if (zn_1)
+        {
+
+            rb.AddForce(0, upForce * value, 0);
+        }
     }
     void FixedUpdate()
     {

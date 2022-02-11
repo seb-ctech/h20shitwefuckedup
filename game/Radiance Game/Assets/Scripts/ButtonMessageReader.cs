@@ -21,7 +21,7 @@ public class ButtonMessageReader : MonoBehaviour
     void Start()
     {
         buttonDispatcher = gameObject.GetComponent<ButtonEventDispatcher>();
-	}
+    }
 
     // Executed each frame
     void Update()
@@ -33,17 +33,19 @@ public class ButtonMessageReader : MonoBehaviour
         if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_CONNECTED))
             Debug.Log("Connection established");
         else if (ReferenceEquals(message, SerialController.SERIAL_DEVICE_DISCONNECTED))
-            Debug.Log("Connection attempt failed or disconnection detected"); 
+            Debug.Log("Connection attempt failed or disconnection detected");
         else ParseMessage(message);
     }
 
     private void ParseMessage(string message)
     {
         string[] protocol = message.Split(':');
-        if(protocol.Length > 1){
+        if (protocol.Length > 1)
+        {
             int buttonIndex = Int32.Parse(protocol[0]);
             int buttonValue = Int32.Parse(protocol[1]);
             buttonDispatcher.ProcessButtonInput(buttonIndex, buttonValue);
+            // Debug.Log("Button " + buttonIndex + " pressed: " + buttonValue);
         }
     }
 
