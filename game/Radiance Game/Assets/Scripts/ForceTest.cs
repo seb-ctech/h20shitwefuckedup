@@ -14,7 +14,7 @@ public class ForceTest : MonoBehaviour
     private float delta;
     private bool zn_1, zn_2, zn_3, zn_4;
 
-    private float upForce = 0.2f;
+    private float upForce = 0.7f;
     // Start is called before the first frame update
     public float noiseFactor;
     void Start()
