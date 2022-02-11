@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cracks
-  m_Shader: {fileID: -6465566751694194690, guid: 1ae9d2739e336cd4aa8147fc78437610, type: 3}
+  m_Name: WaterDroplets
+  m_Shader: {fileID: -6465566751694194690, guid: cdbc02285b0c6a64398945f5880aae8e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -76,9 +76,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_5803283e33584f288f8975e62f0b0271: -0.25
-    - Vector1_CB7D0136: 0.16
-    - Vector1_eb0724f3ba9746bb90c8646912f0b061: -0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -111,7 +108,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &361797247281665669
+--- !u!114 &3514332920385589395
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
