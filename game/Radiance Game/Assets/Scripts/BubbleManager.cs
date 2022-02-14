@@ -32,5 +32,10 @@ public class BubbleManager : MonoBehaviour {
         var emission = particle.emission;
         emission.rateOverTime = buttonStrength*20.0f;
         particle.Play();
+
+        //TODO: water level immer positiv?
+        float waterLevel = 20.0f; //here: get water level
+        var main = particle.main;
+        main.startLifetime = Random.Range(waterLevel * 0.1f, waterLevel * 0.175f);
     }
 }
