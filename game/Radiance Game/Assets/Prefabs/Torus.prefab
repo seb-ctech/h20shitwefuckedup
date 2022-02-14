@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8185093445346225333}
   - component: {fileID: 8185093445346225332}
   - component: {fileID: 8185093445346225335}
-  - component: {fileID: 8185093445346225334}
+  - component: {fileID: 3961835546135933537}
   - component: {fileID: 8185093445346225329}
   - component: {fileID: 8185093445346225328}
   - component: {fileID: 8185093445346225331}
@@ -103,7 +103,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
---- !u!114 &8185093445346225334
+--- !u!114 &3961835546135933537
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -115,6 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  randomNoise_1: 0
+  randomNoise_2: 0
   noiseFactor: 0
 --- !u!65 &8185093445346225329
 BoxCollider:

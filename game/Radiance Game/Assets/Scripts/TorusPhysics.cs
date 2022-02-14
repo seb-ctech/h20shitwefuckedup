@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 //TODO: Refactor as main Torus Physics component and interface with jets
-public class ForceTest : MonoBehaviour
+public class TorusPhysics : MonoBehaviour
 {
 
     //private Variables
