@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BubbleMaterialSylvia
+  m_Name: Bubble-GlassMaterialSylvia
   m_Shader: {fileID: -6465566751694194690, guid: 72467f0616d80d74ca46c4406e51400e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 2
@@ -76,7 +76,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_05a1c5a65ff6498e8bdf2fc945af729b: -0.01
+    - Vector1_05a1c5a65ff6498e8bdf2fc945af729b: 0.01
     - Vector1_3eb616fbbff44efba29e4b2695fa97e4: 0.96
     - Vector1_475423de8b974c369f7f936b2353c6b7: 0.94
     - Vector1_8af3cfeed17f4c929237fa9a3a8e24dc: 0.77
