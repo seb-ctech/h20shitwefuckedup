@@ -834,7 +834,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &326832745
 Rigidbody:
@@ -1098,7 +1097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &346050395
 Rigidbody:
@@ -1267,7 +1265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &352652235
 Rigidbody:
@@ -1436,7 +1433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 0}
   noiseFactor: 0
 --- !u!54 &355517556
 Rigidbody:
@@ -1605,7 +1601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &357497897
 Rigidbody:
@@ -2332,7 +2327,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &439646165
 Rigidbody:
@@ -2629,7 +2623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 495992532}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -4.33, y: -3.7, z: 7.05}
+  m_LocalPosition: {x: 1.2414744, y: -5.1000004, z: 6.1018505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 593756963}
@@ -2783,9 +2777,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3.5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2837,7 +2831,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -2953,7 +2947,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.6
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -3271,11 +3265,11 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 500
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.1
+      scalar: -1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -7537,7 +7531,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &498898297
 Rigidbody:
@@ -7706,7 +7699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &525621410
 Rigidbody:
@@ -7931,7 +7923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 593756962}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3354, y: 3.6986527, z: -7.048858}
+  m_LocalPosition: {x: 3.2585256, y: 9.98, z: -1.6018507}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 736262247}
@@ -8043,7 +8035,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &627679561
 Rigidbody:
@@ -8453,7 +8444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &673194597
 Rigidbody:
@@ -8655,7 +8645,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &732188645
 Rigidbody:
@@ -8888,9 +8877,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3.5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -8942,7 +8931,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9058,8 +9047,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 3
-      minScalar: 1
+      scalar: 0.6
+      minScalar: 0.2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -9376,11 +9365,11 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 500
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.01
+      scalar: -1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -13548,7 +13537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736262244}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.3354, y: -3.699, z: 8.059}
+  m_LocalPosition: {x: -7.758526, y: -5.1000004, z: 6.1018505}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 593756963}
@@ -13849,7 +13838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &824722113
 Rigidbody:
@@ -13952,7 +13940,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &840704262
 Rigidbody:
@@ -14187,7 +14174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &851858033
 Rigidbody:
@@ -14423,7 +14409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &887792309
 Rigidbody:
@@ -14628,7 +14613,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &892587363
 Rigidbody:
@@ -15351,7 +15335,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1028417005
 Rigidbody:
@@ -15520,7 +15503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1034819419
 Rigidbody:
@@ -15810,7 +15792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1086753561
 Rigidbody:
@@ -15903,7 +15884,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1162201468}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -2.34, y: -3.7, z: 7.06}
+  m_LocalPosition: {x: 1.2414744, y: -5.1, z: -2.8981493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 593756963}
@@ -16057,9 +16038,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3.5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -16111,7 +16092,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -16227,7 +16208,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.6
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -16545,11 +16526,11 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 500
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.1
+      scalar: -1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -20811,7 +20792,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1164852534
 Rigidbody:
@@ -20980,7 +20960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1167297400
 Rigidbody:
@@ -21149,7 +21128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1177670205
 Rigidbody:
@@ -21318,7 +21296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1203941851
 Rigidbody:
@@ -21652,7 +21629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259425466}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.36, y: -3.7, z: 6.03}
+  m_LocalPosition: {x: -7.758526, y: -5.1000004, z: -2.8981493}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 593756963}
@@ -21806,9 +21783,9 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 2
-      minScalar: 5
+      minMaxState: 3
+      scalar: 3.5
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -21860,7 +21837,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -21976,7 +21953,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.6
       minScalar: 0.2
       maxCurve:
         serializedVersion: 2
@@ -22294,11 +22271,11 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 500
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.1
+      scalar: -1.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -26560,7 +26537,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1263947441
 Rigidbody:
@@ -26902,7 +26878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1306496906
 Rigidbody:
@@ -27262,7 +27237,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1398420687
 Rigidbody:
@@ -27431,7 +27405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1403498504
 Rigidbody:
@@ -27600,7 +27573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1427558143
 Rigidbody:
@@ -28106,7 +28078,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1622714713
 Rigidbody:
@@ -28747,7 +28718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1886351224
 Rigidbody:
@@ -29088,7 +29058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1919918262
 Rigidbody:
@@ -29257,7 +29226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ButtonHandler: {fileID: 287905154}
   noiseFactor: 0
 --- !u!54 &1935681527
 Rigidbody:
