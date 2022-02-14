@@ -24,6 +24,7 @@ public class ButtonEventDispatcher : MonoBehaviour
         buttonValues = new float[8];
         record = false;
         EventButtonPressed = new ButtonEvent();
+        Debug.Log("Start");
     }
 
     // Update is called once per frame
@@ -92,6 +93,7 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     public ButtonEvent GetEvent()
     {
+        Debug.Log("Button Event Object: " + EventButtonPressed);
         return EventButtonPressed;
     }
 
