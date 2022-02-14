@@ -18,11 +18,13 @@ public class ClientReceiveData : MonoBehaviour {
 	public int serverPort = 10005;
 	#region private members 	
 	private TcpClient socketConnection; 	
-	private Thread clientReceiveThread; 	
+	private Thread clientReceiveThread; 
+	private stateControlScript state;	
 	#endregion  	
 	// Use this for initialization 	
 	void Start () {
-		ConnectToTcpServer();     
+		ConnectToTcpServer();
+		state = gameObject.GetComponent<stateControlScript>();     
 	}  	
 	private void ConnectToTcpServer () { 		
     // Create and start a Thread to Listen for Data
@@ -49,7 +51,8 @@ public class ClientReceiveData : MonoBehaviour {
 						Array.Copy(bytes, 0, incomingData, 0, length); 						
 						// Convert byte array to string message. 				
 						float serverData = BitConverter.ToSingle(incomingData, 0); 						
-						Debug.Log("server message received as: " + serverData); 					
+						Debug.Log("server message received as: " + serverData);
+						state.SetVizState(serverData);
 					} 				
 				} 			
 			}         

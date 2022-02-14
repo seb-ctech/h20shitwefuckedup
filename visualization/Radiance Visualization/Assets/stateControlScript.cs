@@ -16,6 +16,10 @@ public class stateControlScript : MonoBehaviour
         vizState = 0;
     }
 
+    public void SetVizState(float value){
+        vizState = value;
+    }
+
     // Update is called once per frame
     void Update()
     {
