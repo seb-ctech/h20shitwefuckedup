@@ -8,6 +8,12 @@
         },
         {
             "m_Id": "c01cf41f7832440897b450b457cb542e"
+        },
+        {
+            "m_Id": "f6a25e868c4b4090877381aa4269b580"
+        },
+        {
+            "m_Id": "09dd4ff5a76846b28695deaaa79fdea0"
         }
     ],
     "m_Keywords": [],
@@ -548,8 +554,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 221.0000762939453,
-            "y": 665.0
+            "x": 496.5,
+            "y": 759.4999389648438
         },
         "m_Blocks": [
             {
@@ -765,6 +771,29 @@
         "m_SerializableColors": []
     },
     "m_Value": 0.0
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "09dd4ff5a76846b28695deaaa79fdea0",
+    "m_Guid": {
+        "m_GuidSerialized": "a3e81cad-9c42-41c3-a53d-6572333a9f28"
+    },
+    "m_Name": "Metallic",
+    "m_DefaultReferenceName": "Vector1_09dd4ff5a76846b28695deaaa79fdea0",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -2291,26 +2320,16 @@
             "w": 0.0
         },
         {
-            "x": 0.6650943756103516,
+            "x": 1.0,
             "y": 1.0,
-            "z": 0.812825083732605,
-            "w": 0.29706263542175295
-        },
-        {
-            "x": 0.14901958405971528,
-            "y": 0.6741152405738831,
-            "z": 0.8117647171020508,
-            "w": 0.9441214799880981
+            "z": 1.0,
+            "w": 1.0
         }
     ],
     "m_SerializableAlphaKeys": [
         {
             "x": 1.0,
             "y": 0.0
-        },
-        {
-            "x": 1.0,
-            "y": 0.37059587240219118
         },
         {
             "x": 1.0,
@@ -3960,6 +3979,29 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
+    }
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "f6a25e868c4b4090877381aa4269b580",
+    "m_Guid": {
+        "m_GuidSerialized": "3a297359-2895-4783-98d8-c37b0a2af02d"
+    },
+    "m_Name": "Smoothness",
+    "m_DefaultReferenceName": "Vector1_f6a25e868c4b4090877381aa4269b580",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
     }
 }
 

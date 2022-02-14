@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WaterLevel : MonoBehaviour
 {
-    [Range(1.0f, 100f)]
-    public float releaseRate = 0.001f;
+    [Range(0.0f, 100f)]
+    public float releaseRate;
 
     private float waterLevel = 1f;
     private float waterLeak = 0f;
@@ -39,7 +39,7 @@ public class WaterLevel : MonoBehaviour
 
     public void LeakWater()
     {
-        float rate = releaseRate / 10000f;
+        float rate = releaseRate / 10000.0f;
         waterLeak = Mathf.Clamp(waterLeak + rate, 0.0f, 1.0f);
         waterLevel = Mathf.Clamp(waterLevel - rate, 0.0f, 1.0f);
     }
