@@ -3,44 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonEvent : UnityEvent<float>
+public class ButtonEvent : UnityEvent<int, float>
 {
 
 }
 
-public class ButtonEventDispatcher : MonoBehaviour
+
+public class PressureButton
 {
-    // Start is called before the first frame update
-    private float[] buttonValues;
-    private float mainButton;
-    private int tickCount;
-    private bool record;
-    private bool buttonPressed;
+    private int index;
+    private bool record = false;
+    private bool buttonPressed = false;
+    private int tickCount = 0;
     private int maxTicks = 10;
-    private float accForce;
-    private ButtonEvent EventButtonPressed;
-    void Start()
-    {
-        buttonValues = new float[8];
-        record = false;
-        EventButtonPressed = new ButtonEvent();
-        Debug.Log("Start");
+    private float value;
+    
+    public PressureButton(int _index){
+        index = _index;
     }
 
-    // Update is called once per frame
-
-
-    public void ProcessButtonInput(int index, int value)
-    {
-        float normalize = Mathf.Min(value / 1000f, 1.0f);
-        // Debug.Log("Button " + index + " value is: " + normalize);
-        buttonValues[index] = normalize;
-        mainButton = normalize;
-        EvaluateButtonPress(mainButton);
-    }
-
-    void EvaluateButtonPress(float value)
-    {
+    public void HandleNewValue(float value){
         bool wasPressed = buttonPressed;
         if (value > 0.2)
         {
@@ -53,47 +35,103 @@ public class ButtonEventDispatcher : MonoBehaviour
 
         if (buttonPressed && !wasPressed)
         {
-            Debug.Log("Button Pressed!");
             record = true;
         }
         else if (!buttonPressed && wasPressed)
         {
-            EmitButtonPress();
+            ResetRecording();   
         }
 
         if (record)
         {
-            EventButtonPressed.Invoke(value);
             if (tickCount <= maxTicks)
             {
-                accForce += value;
                 tickCount++;
-            }
-            else
-            {
-                // EmitButtonPress();
             }
         }
     }
 
-    void EmitButtonPress()
-    {
-        float force = tickCount > 0 ? accForce / tickCount : 0.0f;
-        EventButtonPressed.Invoke(force);
-        ResetButtonEvaluation();
-        Debug.Log("Button Released " + force);
+    public bool IsRecording(){
+        return record;
     }
 
-    void ResetButtonEvaluation()
+    public float GetValue(){
+        return value;
+    }
+
+    void ResetRecording()
     {
         record = false;
-        accForce = 0.0f;
         tickCount = 0;
+    }
+
+}
+
+
+
+public class ButtonEventDispatcher : MonoBehaviour
+{
+    // Start is called before the first frame update
+    private ButtonEvent EventButtonPressed;
+    private PressureButton[] pressureButtons;
+
+    void Start()
+    {
+        EventButtonPressed = new ButtonEvent();
+        pressureButtons = new PressureButton[8];
+        for(int i = 0; i < pressureButtons.Length; i++){
+            pressureButtons[i] = new PressureButton(i);
+        }
+    }
+
+
+    void Update()
+    {
+        ArrowKeyControls();
+    }
+
+    void ArrowKeyControls()
+    {
+        float defaultValue = 0.5f;
+        if (Input.GetKey("up"))
+        {
+            EventButtonPressed.Invoke(0, defaultValue);
+        }
+
+        if (Input.GetKey("left"))
+        {
+            EventButtonPressed.Invoke(1, defaultValue);
+        }
+
+        if (Input.GetKey("right"))
+        {
+            EventButtonPressed.Invoke(2, defaultValue);
+        }
+
+        if (Input.GetKey("down"))
+        {
+            EventButtonPressed.Invoke(3, defaultValue);
+        }
+    }
+
+    public void ProcessButtonInput(int index, int value)
+    {
+        float normalized = Mathf.Min(value / 1000f, 1.0f);
+        EvaluateButtonPress(index, normalized);
+    }
+
+    void EvaluateButtonPress(int index, float value)
+    {
+        PressureButton targetButton = pressureButtons[index];
+        targetButton.HandleNewValue(value);
+        if (targetButton.IsRecording()){
+            EventButtonPressed.Invoke(index, targetButton.GetValue());
+            Debug.Log("Button " + index + " Pressed!");
+        }
     }
 
     public ButtonEvent GetEvent()
     {
-        Debug.Log("Button Event Object: " + EventButtonPressed);
         return EventButtonPressed;
     }
 

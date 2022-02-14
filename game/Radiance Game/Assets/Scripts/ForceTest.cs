@@ -9,8 +9,8 @@ public class ForceTest : MonoBehaviour
     //private Variables
     private Rigidbody rb;
 
-    private bool buttonPress_right, buttonPress_down, buttonPress_left, buttonPress_up;
-    private bool zn_1, zn_2, zn_3, zn_4;
+    
+    private bool[] zones;
     private float upForce_strength_noise;
     private bool n_1, n_2, n_3, n_4 = true;
     private bool buttonPushed;
@@ -38,8 +38,8 @@ public class ForceTest : MonoBehaviour
         {
             Init();
         }
-        RegisterArrowKeys();
-        ControlForceByArrowKeys();
+        
+        // ControlForceByArrowKeys();
     }
 
     void Init()
@@ -48,32 +48,10 @@ public class ForceTest : MonoBehaviour
         init = true;
     }
 
-    void RegisterArrowKeys()
+    void PushButton(int index, float value)
     {
-        if (Input.GetKey("up"))
-        {
-            buttonPress_up = true;
-        }
-
-        if (Input.GetKey("left"))
-        {
-            buttonPress_left = true;
-        }
-
-        if (Input.GetKey("right"))
-        {
-            buttonPress_right = true;
-        }
-
-        if (Input.GetKey("down"))
-        {
-            buttonPress_down = true;
-        }
-    }
-
-    void PushButton(float value)
-    {
-        if (zn_1)
+        bool targetZone = zones[index];
+        if (targetZone)
         {
             if (value < 0 || value > 0 && buttonPushed)
             {
@@ -86,20 +64,16 @@ public class ForceTest : MonoBehaviour
         }
     }
 
-    void ControlForceByArrowKeys()
-    {
-        pressedAnyButton(ref buttonPress_up, zn_1, n_1, 1.0f, -1.0f);
-        pressedAnyButton(ref buttonPress_left, zn_2, n_2, -1.0f, -1.0f);
-        pressedAnyButton(ref buttonPress_right, zn_3, n_3, 1.0f, 1.0f);
-        pressedAnyButton(ref buttonPress_down, zn_4, n_4, -1.0f, 1.0f);
-    }
+    // void ControlForceByArrowKeys()
+    // {
+    //     pressedAnyButton(ref buttonPress_up, zones[0], ref n_1, 1.0f, -1.0f);
+    //     pressedAnyButton(ref buttonPress_left, zones[1], ref n_2, -1.0f, -1.0f);
+    //     pressedAnyButton(ref buttonPress_right, zones[2], ref n_3, 1.0f, 1.0f);
+    //     pressedAnyButton(ref buttonPress_down, zones[3], ref n_4, -1.0f, 1.0f);
+    // }
 
     void InitializeButtonControls()
     {
-        buttonPress_up = false;
-        buttonPress_left = false;
-        buttonPress_right = false;
-        buttonPress_down = false;
         buttonHandler = GameObject.Find("ButtonHandler");
         button = buttonHandler.GetComponent<ButtonEventDispatcher>().GetEvent();
         button.AddListener(PushButton);
@@ -107,7 +81,7 @@ public class ForceTest : MonoBehaviour
 
 
 
-    void pressedAnyButton(ref bool buttonKey, bool zn, bool noise, float x, float z)
+    void pressedAnyButton(ref bool buttonKey, bool zn, ref bool noise, float x, float z)
     {
         float toraeHeight;
         if (buttonKey && zn)
@@ -134,19 +108,19 @@ public class ForceTest : MonoBehaviour
         if (zone.gameObject.name == "Zone_1")
         {
             Debug.Log("Collision detetcted hi lucas with" + zone.gameObject.name);
-            zn_1 = true;
+            zones[0] = true;
         }
         else if (zone.gameObject.name == "Zone_2")
         {
-            zn_2 = true;
+            zones[1] = true;
         }
         else if (zone.gameObject.name == "Zone_3")
         {
-            zn_3 = true;
+            zones[2] = true;
         }
         else if (zone.gameObject.name == "Zone_4")
         {
-            zn_4 = true;
+            zones[3] = true;
         }
     }
 
@@ -155,23 +129,23 @@ public class ForceTest : MonoBehaviour
         if (zone.gameObject.name == "Zone_1")
         {
             Debug.Log("Collision exit " + zone.gameObject.name);
-            zn_1 = false;
+            zones[0] = false;
             buttonPushed = true;
             n_1 = true;
         }
         else if (zone.gameObject.name == "Zone_2")
         {
-            zn_2 = false;
+            zones[1] = false;
             n_2 = true;
         }
         else if (zone.gameObject.name == "Zone_3")
         {
-            zn_3 = false;
+            zones[2] = false;
             n_3 = true;
         }
         else if (zone.gameObject.name == "Zone_4")
         {
-            zn_4 = false;
+            zones[3] = false;
             n_4 = true;
         }
     }
