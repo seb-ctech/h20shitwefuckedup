@@ -18,7 +18,6 @@ public class WaterLevel : MonoBehaviour
         waterSurfaceT = GameObject.Find("WaterSurface").transform;
         waterLevel = 1.0f;
         waterLeak = 0.0f;
-        releaseRate = 1.0f;
     }
 
     // Update is called once per frame
@@ -40,8 +39,7 @@ public class WaterLevel : MonoBehaviour
 
     public void LeakWater()
     {
-        Debug.Log("Water Release: " + releaseRate);
-        float rate = releaseRate / 1000.0f;
+        float rate = releaseRate / 10000.0f;
         waterLeak = Mathf.Clamp(waterLeak + rate, 0.0f, 1.0f);
         waterLevel = Mathf.Clamp(waterLevel - rate, 0.0f, 1.0f);
     }
