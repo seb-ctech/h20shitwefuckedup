@@ -11,9 +11,10 @@ public class ForceTest : MonoBehaviour
     private bool buttonPress_up;
     private bool buttonPress_left;
     private bool buttonPress_right, buttonPress_down;
-    private float delta;
     private bool zn_1, zn_2, zn_3, zn_4;
     private ButtonEvent button;
+    private bool init = false;
+    private GameObject buttonHandler;
 
     private float upForce = 100.0f;
     // Start is called before the first frame update
@@ -21,43 +22,27 @@ public class ForceTest : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-
-        delta = 0.0f;
-        buttonPress_up = false;
-        buttonPress_left = false;
-        buttonPress_right = false;
-        buttonPress_down = false;
-        button = GameObject.Find("ButtonHandler").GetComponent<ButtonEventDispatcher>().GetEvent();
-        button.AddListener(PushButton);
+        Debug.Log(gameObject.name + " " + rb);
     }
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if (Input.GetKey("up"))
-    //     {
-    //         rb.AddForce(Vector3.Scale(Vector3.up, new Vector3(0, 2, 0)));
-    //         AddNoiseOffset();
-    //     }
-
-    //     if (Input.GetKey("right"))
-    //     {
-    //         rb.drag = 20;
-    //     }
-    //     else
-    //     {
-    //         rb.drag = 0;
-    //     }
-
-    //     if (Input.GetKey("left"))
-    //     {
-    //         rb.AddTorque(Vector3.right * 0.1f);
-    //     }
-    //     delta += 10.0f;
-    // }
 
 
     void Update()
+    {
+        if (!init)
+        {
+            Init();
+        }
+        RegisterArrowKeys();
+        ControlForceByArrowKeys();
+    }
+
+    void Init()
+    {
+        InitializeButtonControls();
+        init = true;
+    }
+
+    void RegisterArrowKeys()
     {
         if (Input.GetKey("up"))
         {
@@ -78,8 +63,6 @@ public class ForceTest : MonoBehaviour
         {
             buttonPress_down = true;
         }
-
-        delta += 1.0f;
     }
 
     void PushButton(float value)
@@ -90,33 +73,40 @@ public class ForceTest : MonoBehaviour
             rb.AddForce(0, upForce * value, 0);
         }
     }
-    void FixedUpdate()
-    {
 
+    void ControlForceByArrowKeys()
+    {
         if (buttonPress_up == true && zn_1)
         {
-
-            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            rb.AddForce(0, upForce, 0);
             buttonPress_up = false;
-
         }
-        else if (buttonPress_left && zn_2)
+        if (buttonPress_left && zn_2)
         {
-            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            rb.AddForce(0, upForce, 0);
             buttonPress_left = false;
         }
         else if (buttonPress_right && zn_3)
         {
-            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            rb.AddForce(0, upForce, 0);
             buttonPress_right = false;
         }
         else if (buttonPress_down && zn_4)
         {
-            rb.AddForce(0, upForce, 0, ForceMode.Impulse);
+            rb.AddForce(0, upForce, 0);
             buttonPress_down = false;
         }
+    }
 
-
+    void InitializeButtonControls()
+    {
+        buttonPress_up = false;
+        buttonPress_left = false;
+        buttonPress_right = false;
+        buttonPress_down = false;
+        buttonHandler = GameObject.Find("ButtonHandler");
+        button = buttonHandler.GetComponent<ButtonEventDispatcher>().GetEvent();
+        button.AddListener(PushButton);
     }
 
     void OnTriggerEnter(Collider zone)
@@ -161,17 +151,6 @@ public class ForceTest : MonoBehaviour
             zn_4 = false;
         }
     }
-
-    // void AddNoiseOffset()
-    // {
-    //     Vector3 noise = new Vector3(
-    //                 (Mathf.PerlinNoise(delta, delta - 5.0f) * 2.0f - 1.0f),
-    //                 (Mathf.PerlinNoise(delta - 20f, delta + 3.0f) * 2.0f - 1.0f),
-    //                 (Mathf.PerlinNoise(delta + 2.0f, delta - 3.0f) * 2.0f - 1.0f));
-    //     rb.AddForce(noise);
-    //     Debug.Log("Noise: " + noise);
-    //     Debug.Log("Velocity: " + rb.velocity);
-    // }
 
 }
 
