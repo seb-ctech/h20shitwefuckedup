@@ -27,13 +27,23 @@ public class WaterLevel : MonoBehaviour
         TestWaterLevelOverTime();
     }
 
+    public float GetWaterLevel()
+    {
+        return waterLevel;
+    }
+
+    public float GetLeakedWater()
+    {
+        return waterLeak;
+    }
+
     public void LeakWater()
     {
         float rate = releaseRate / 10000f;
         waterLeak = Mathf.Clamp(waterLeak + rate, 0.0f, 1.0f);
         waterLevel = Mathf.Clamp(waterLevel - rate, 0.0f, 1.0f);
     }
-    
+
     void TestWaterLevelOverTime(){
         if(Time.frameCount % 30 == 0)
         {
@@ -49,10 +59,5 @@ public class WaterLevel : MonoBehaviour
         waterSurfaceT.localPosition = position;
     }
 
-
-    float GetWaterLevel()
-    {
-        return waterLevel;
-    }
 }
 
