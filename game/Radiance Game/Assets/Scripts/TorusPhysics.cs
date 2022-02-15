@@ -6,13 +6,12 @@ using UnityEngine;
 public class ZoneControl {
     private int index;
     private bool inside;
-    private bool setNewNoise;
     private Vector3 noiseDirection;
+    private Vector3 noise;
     
     public ZoneControl(int _index){
         index = _index;
         inside = false;
-        setNewNoise = false;
     }
 
     public void SetInside(bool isInside){
@@ -27,21 +26,18 @@ public class ZoneControl {
         return inside;
     }
 
-    public bool ShouldRequestNewNoise(){
-        return setNewNoise;
-    }
-
-    public void ResetNoise(){
-        setNewNoise = false;
-    }
-
     public Vector3 GetNoiseDirection(){
         return noiseDirection;
     }
 
-    public void RequestNewNoise(){
-        setNewNoise = true;
+    public void MakeNewNoise(float min, float max){
+        noise = new Vector3(Random.Range(min, max), 1.0f, Random.Range(min, max));
     }
+
+    public Vector3 GetNoise(){
+        return noise;
+    }
+
 
 }
 
@@ -61,6 +57,7 @@ public class TorusPhysics : MonoBehaviour
 
     private ZoneControl[] zones;
     private ButtonEvent button;
+    private ButtonEventEdge buttonEdge;
     private GameObject buttonHandler;
 
     void Start()
@@ -99,21 +96,24 @@ public class TorusPhysics : MonoBehaviour
         float buttonUpForce = 100.0f;
         if (zones[index].IsInZone())
         {
-            if (value < 0 || value > 0)
-            {
-                upForce_strength_noise = Random.Range(-30.0f, 80.0f);
-            }
-            rb.AddForce(upForce_strength_noise, buttonUpForce * value, upForce_strength_noise);
+            rb.AddForce(zones[index].GetNoise().x, buttonUpForce * value, zones[index].GetNoise().z);
             rb.AddTorque(1.0f, upForce_strength_noise / 6, 4.0f);
         }
         AddNoiseDisplacement(index);
+    }
+
+    void OnButtonEdge(int index)
+    {
+        zones[index].MakeNewNoise(minNoise, maxNoise);
     }
 
     void InitializeButtonControls()
     {
         buttonHandler = GameObject.Find("ButtonHandler");
         button = buttonHandler.GetComponent<ButtonEventDispatcher>().GetEvent();
+        buttonEdge = buttonHandler.GetComponent<ButtonEventDispatcher>().GetEventEdge();
         button.AddListener(OnButtonPush);
+        buttonEdge.AddListener(OnButtonEdge);
     }
 
 
@@ -122,13 +122,7 @@ public class TorusPhysics : MonoBehaviour
     {
         if (zones[index].IsInZone())
         {
-            if (zones[index].ShouldRequestNewNoise())
-            {
-                upForce_strength_noise = Random.Range(minNoise, maxNoise);
-                zones[index].ResetNoise();
-            }
             rb.AddForce(zones[index].GetNoiseDirection().x * upForce_strength_noise, upForce, zones[index].GetNoiseDirection().z * upForce_strength_noise / 3);
-
             float toraeHeight = transform.position.y;
             if (toraeHeight > 3)
             {
@@ -164,22 +158,18 @@ public class TorusPhysics : MonoBehaviour
         {
             Debug.Log("Collision exit " + zone.gameObject.name);
             zones[0].SetInside(false);
-            zones[0].RequestNewNoise();
         }
         else if (zone.gameObject.name == "Zone_2")
         {
             zones[1].SetInside(false);
-            zones[1].RequestNewNoise();
         }
         else if (zone.gameObject.name == "Zone_3")
         {
             zones[2].SetInside(false);
-            zones[2].RequestNewNoise();
         }
         else if (zone.gameObject.name == "Zone_4")
         {
             zones[3].SetInside(false);
-            zones[3].RequestNewNoise();
         }
     }
 

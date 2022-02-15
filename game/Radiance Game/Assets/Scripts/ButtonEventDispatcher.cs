@@ -8,6 +8,11 @@ public class ButtonEvent : UnityEvent<int, float>
 
 }
 
+public class ButtonEventEdge : UnityEvent<int>
+{
+
+}
+
 
 public class PressureButton
 {
@@ -22,7 +27,7 @@ public class PressureButton
         index = _index;
     }
 
-    public void HandleNewValue(float pvalue){
+    public bool HandleNewValue(float pvalue){
         bool wasPressed = buttonPressed;
         if (pvalue > 0.2)
         {
@@ -36,6 +41,7 @@ public class PressureButton
         if (buttonPressed && !wasPressed)
         {
             record = true;
+            return true;
         }
         else if (!buttonPressed && wasPressed)
         {
@@ -52,6 +58,7 @@ public class PressureButton
             }
         }
         value = pvalue;
+        return false;
     }
 
     public bool IsRecording(){
@@ -76,13 +83,15 @@ public class PressureButton
 public class ButtonEventDispatcher : MonoBehaviour
 {
     // Start is called before the first frame update
-    private ButtonEvent EventButtonPressed;
+    private ButtonEvent eBtnPressed;
+    private ButtonEventEdge eBtnEdge;
     private PressureButton[] pressureButtons;
     private WaterLevel wl;
 
     void Start()
     {
-        EventButtonPressed = new ButtonEvent();
+        eBtnPressed = new ButtonEvent();
+        eBtnEdge = new ButtonEventEdge();
         pressureButtons = new PressureButton[8];
         for(int i = 0; i < pressureButtons.Length; i++){
             pressureButtons[i] = new PressureButton(i);
@@ -101,26 +110,42 @@ public class ButtonEventDispatcher : MonoBehaviour
         float defaultValue = 0.1f;
         if (Input.GetKey("up"))
         {
-            EventButtonPressed.Invoke(0, defaultValue);
+            eBtnPressed.Invoke(0, defaultValue);
             AfterButtonPress();
+        }
+
+        if (Input.GetKeyDown("up")){
+            eBtnEdge.Invoke(0);
         }
 
         if (Input.GetKey("left"))
         {
-            EventButtonPressed.Invoke(1, defaultValue);
+            eBtnPressed.Invoke(1, defaultValue);
             AfterButtonPress();
+        }
+
+        if (Input.GetKeyDown("left")){
+            eBtnEdge.Invoke(1);
         }
 
         if (Input.GetKey("right"))
         {
-            EventButtonPressed.Invoke(2, defaultValue);
+            eBtnPressed.Invoke(2, defaultValue);
             AfterButtonPress();
+        }
+
+        if (Input.GetKeyDown("right")){
+            eBtnEdge.Invoke(2);
         }
 
         if (Input.GetKey("down"))
         {
-            EventButtonPressed.Invoke(3, defaultValue);
+            eBtnPressed.Invoke(3, defaultValue);
             AfterButtonPress();
+        }
+
+        if (Input.GetKeyDown("down")){
+            eBtnEdge.Invoke(3);
         }
     }
 
@@ -133,17 +158,24 @@ public class ButtonEventDispatcher : MonoBehaviour
     void EvaluateButtonPress(int index, float value)
     {
         PressureButton targetButton = pressureButtons[index];
-        targetButton.HandleNewValue(value);
+        bool trigger = targetButton.HandleNewValue(value);
         if (targetButton.IsRecording()){
-            EventButtonPressed.Invoke(index, targetButton.GetValue());
-            Debug.Log("Button " + index + " Pressed!");
+            eBtnPressed.Invoke(index, targetButton.GetValue());
             AfterButtonPress();
+        }
+        if (trigger){
+            eBtnEdge.Invoke(index);
+            Debug.Log("Button " + index + " Pressed!");
         }
     }
 
     public ButtonEvent GetEvent()
     {
-        return EventButtonPressed;
+        return eBtnPressed;
+    }
+
+    public ButtonEventEdge GetEventEdge(){
+        return eBtnEdge;
     }
 
     private void AfterButtonPress(){
