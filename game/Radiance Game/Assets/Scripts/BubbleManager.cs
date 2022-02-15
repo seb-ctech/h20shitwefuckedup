@@ -10,6 +10,7 @@ public class BubbleManager : MonoBehaviour {
 
     private ButtonEvent button;
     private GameObject buttonHandler;
+    private WaterLevel wl;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,7 @@ public class BubbleManager : MonoBehaviour {
         for (int i=0; i<particleSystems.Length; i++){
             particleSystems[i].Stop();
         }
-
+        wl = GameObject.Find("WaterTank").GetComponent<WaterLevel>();
     }
 
     void InitializeButtonControls()
@@ -43,7 +44,7 @@ public class BubbleManager : MonoBehaviour {
         Debug.Log("Start Bubbles");
         particle.Play();
 
-        float waterLevel = 20.0f; //here: get water level
+        float waterLevel = wl.GetWaterLevel() * 20.0f; //here: get water level
         var main = particle.main;
         main.startLifetime = Random.Range(waterLevel * 0.1f, waterLevel * 0.175f);
     }
