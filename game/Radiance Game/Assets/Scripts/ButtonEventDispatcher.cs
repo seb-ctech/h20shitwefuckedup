@@ -94,7 +94,7 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     void ArrowKeyControls()
     {
-        float defaultValue = 0.5f;
+        float defaultValue = 0.1f;
         if (Input.GetKey("up"))
         {
             EventButtonPressed.Invoke(0, defaultValue);
