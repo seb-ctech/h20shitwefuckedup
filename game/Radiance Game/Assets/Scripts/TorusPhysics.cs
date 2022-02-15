@@ -57,7 +57,7 @@ public class TorusPhysics : MonoBehaviour
 
     [Range(-10.0f, 50.0f)]
     public float minNoise, maxNoise;
-    private float upForce = 5.0f;
+    private float upForce = 2.0f;
 
     private ZoneControl[] zones;
     private ButtonEvent button;
