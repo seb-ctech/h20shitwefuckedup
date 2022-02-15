@@ -22,9 +22,9 @@ public class PressureButton
         index = _index;
     }
 
-    public void HandleNewValue(float value){
+    public void HandleNewValue(float pvalue){
         bool wasPressed = buttonPressed;
-        if (value > 0.2)
+        if (pvalue > 0.2)
         {
             buttonPressed = true;
         }
@@ -47,8 +47,11 @@ public class PressureButton
             if (tickCount <= maxTicks)
             {
                 tickCount++;
+            } else {
+                ResetRecording();
             }
         }
+        value = pvalue;
     }
 
     public bool IsRecording(){
@@ -56,6 +59,7 @@ public class PressureButton
     }
 
     public float GetValue(){
+        Debug.Log("Button " + index + ": " + value);
         return value;
     }
 
