@@ -74,6 +74,7 @@ public class ButtonEventDispatcher : MonoBehaviour
     // Start is called before the first frame update
     private ButtonEvent EventButtonPressed;
     private PressureButton[] pressureButtons;
+    private WaterLevel wl;
 
     void Start()
     {
@@ -82,6 +83,7 @@ public class ButtonEventDispatcher : MonoBehaviour
         for(int i = 0; i < pressureButtons.Length; i++){
             pressureButtons[i] = new PressureButton(i);
         }
+        wl = GameObject.Find("WaterTank").GetComponent<WaterLevel>();
     }
 
 
@@ -96,21 +98,25 @@ public class ButtonEventDispatcher : MonoBehaviour
         if (Input.GetKey("up"))
         {
             EventButtonPressed.Invoke(0, defaultValue);
+            AfterButtonPress();
         }
 
         if (Input.GetKey("left"))
         {
             EventButtonPressed.Invoke(1, defaultValue);
+            AfterButtonPress();
         }
 
         if (Input.GetKey("right"))
         {
             EventButtonPressed.Invoke(2, defaultValue);
+            AfterButtonPress();
         }
 
         if (Input.GetKey("down"))
         {
             EventButtonPressed.Invoke(3, defaultValue);
+            AfterButtonPress();
         }
     }
 
@@ -127,12 +133,17 @@ public class ButtonEventDispatcher : MonoBehaviour
         if (targetButton.IsRecording()){
             EventButtonPressed.Invoke(index, targetButton.GetValue());
             Debug.Log("Button " + index + " Pressed!");
+            AfterButtonPress();
         }
     }
 
     public ButtonEvent GetEvent()
     {
         return EventButtonPressed;
+    }
+
+    private void AfterButtonPress(){
+        wl.LeakWater();
     }
 
 }

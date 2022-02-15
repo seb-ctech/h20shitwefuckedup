@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.83689064, g: 0.83477086, b: 0.99021524, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0.99999946, b: 0.99999946, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -485,6 +485,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -553,6 +557,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -628,6 +636,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -696,6 +708,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -766,6 +782,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 17
@@ -834,6 +854,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -904,6 +928,7 @@ GameObject:
   - component: {fileID: 298790523}
   - component: {fileID: 298790522}
   - component: {fileID: 298790521}
+  - component: {fileID: 298790526}
   m_Layer: 0
   m_Name: Zone_2
   m_TagString: Untagged
@@ -1003,6 +1028,18 @@ Transform:
   m_Father: {fileID: 548564432}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &298790526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 298790520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b717ce65051f096409e776af9250ce1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &307388364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1490,7 @@ GameObject:
   - component: {fileID: 393155801}
   - component: {fileID: 393155800}
   - component: {fileID: 393155799}
+  - component: {fileID: 393155804}
   m_Layer: 0
   m_Name: Zone_4
   m_TagString: Untagged
@@ -1552,6 +1590,18 @@ Transform:
   m_Father: {fileID: 548564432}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393155804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393155798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b717ce65051f096409e776af9250ce1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &406805823 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
@@ -1579,6 +1629,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -1784,6 +1838,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1852,6 +1910,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -6963,6 +7025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -7551,6 +7617,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 31
@@ -7619,6 +7689,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -7724,6 +7798,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -12705,6 +12783,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -12778,6 +12860,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -13543,6 +13629,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -13732,6 +13822,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -18795,6 +18889,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -23927,6 +24025,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -24143,6 +24245,7 @@ GameObject:
   - component: {fileID: 1330810104}
   - component: {fileID: 1330810103}
   - component: {fileID: 1330810102}
+  - component: {fileID: 1330810107}
   m_Layer: 0
   m_Name: Zone_1
   m_TagString: Untagged
@@ -24242,6 +24345,18 @@ Transform:
   m_Father: {fileID: 548564432}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1330810107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330810101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b717ce65051f096409e776af9250ce1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372857610
 GameObject:
   m_ObjectHideFlags: 0
@@ -24344,6 +24459,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -24417,6 +24536,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -24612,6 +24735,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (32)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -24903,6 +25030,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -25150,6 +25281,7 @@ GameObject:
   - component: {fileID: 1717339214}
   - component: {fileID: 1717339213}
   - component: {fileID: 1717339212}
+  - component: {fileID: 1717339217}
   m_Layer: 0
   m_Name: Zone_3
   m_TagString: Untagged
@@ -25249,6 +25381,18 @@ Transform:
   m_Father: {fileID: 548564432}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1717339217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717339211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b717ce65051f096409e776af9250ce1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1747586057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25271,6 +25415,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -25422,6 +25570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -25495,6 +25647,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -25605,6 +25761,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2906828126997535629, guid: 3d949e7712640234e93e0a87a1665ddb, type: 3}
+      propertyPath: releaseRate
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 2906828126997535631, guid: 3d949e7712640234e93e0a87a1665ddb, type: 3}
       propertyPath: m_Name
       value: WaterTank
@@ -25645,6 +25805,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (30)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -25773,6 +25937,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7069e7d077697044ebcb40519120355a, type: 3}
+--- !u!1 &1925173320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1925173321}
+  m_Layer: 0
+  m_Name: Test
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1925173321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1925173320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.3118916, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1936304650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
@@ -25897,6 +26091,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -25965,6 +26163,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -26129,6 +26331,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (28)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
@@ -26334,6 +26540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torus (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -26402,6 +26612,10 @@ PrefabInstance:
     - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_Name
       value: Torus (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8185093445346225340, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
       propertyPath: m_RootOrder
