@@ -46,6 +46,6 @@ public class BubbleManager : MonoBehaviour {
 
         float waterLevel = wl.GetWaterLevel(); //here: get water level
         var main = particle.main;
-        main.startLifetime = Random.Range(waterLevel *2.0f, waterLevel * 3.5f);
+        main.startLifetime = new ParticleSystem.MinMaxCurve(waterLevel *2.0f, waterLevel * 3.0f);
     }
 }
