@@ -18,7 +18,7 @@ public class ZonesMoveY : MonoBehaviour
     {
         float waterLevel = wl.GetWaterLevel();
 
-        transform.position = new Vector3(0.0f, 12.0f * waterLevel, 0.0f);
+        transform.position = new Vector3(transform.position.x, 12.0f * waterLevel, transform.position.z);
 
     }
 }

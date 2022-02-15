@@ -6452,6 +6452,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 548564432}
+  - component: {fileID: 548564433}
   m_Layer: 0
   m_Name: Zones
   m_TagString: Untagged
@@ -6477,6 +6478,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &548564433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 548564431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e935475d365fc32439e00435fee88d8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &567387719 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 796733926023414062, guid: 7069e7d077697044ebcb40519120355a, type: 3}
@@ -12043,6 +12056,7 @@ GameObject:
   - component: {fileID: 906664233}
   - component: {fileID: 906664235}
   - component: {fileID: 906664234}
+  - component: {fileID: 906664236}
   m_Layer: 0
   m_Name: FunPlayAtmo
   m_TagString: Untagged
@@ -12185,6 +12199,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &906664236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906664232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173a9587a8faaf0409ee5fe13a9bb9cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &968463902 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8185093445346225341, guid: fa3a2fc61e9047040bfb0d8fcd29402e, type: 3}
@@ -23451,7 +23477,7 @@ Transform:
   - {fileID: 1811157857}
   - {fileID: 906664233}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672751753
 GameObject:
@@ -24684,6 +24710,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 246833222}
     m_Modifications:
+    - target: {fileID: 5872062244912741074, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741075, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_TargetDisplay
       value: 1
@@ -24980,7 +25010,7 @@ Transform:
   m_GameObject: {fileID: 8164078559432918263}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 0.48255, y: 0.009, z: 0.48255}
+  m_LocalScale: {x: 0.65, y: 0.009, z: 0.65}
   m_Children: []
   m_Father: {fileID: 2906828126271028090}
   m_RootOrder: 0
@@ -25051,7 +25081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 987670fbceeb1b4418d513959415fb07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  releaseRate: 20
+  releaseRate: 100
 --- !u!33 &2906828126271028085
 MeshFilter:
   m_ObjectHideFlags: 0
