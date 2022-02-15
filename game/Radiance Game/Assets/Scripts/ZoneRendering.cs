@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZoneScript : MonoBehaviour
+public class ZoneRendering : MonoBehaviour
 {
     void OnPreRender()
     {
@@ -13,5 +13,4 @@ public class ZoneScript : MonoBehaviour
     {
         GL.wireframe = true;
     }
-
 }
