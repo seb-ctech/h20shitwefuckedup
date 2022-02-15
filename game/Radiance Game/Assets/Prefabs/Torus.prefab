@@ -115,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf5c05c127440241ac82d3fa5e2a6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minNoise: -1
-  maxNoise: 5
+  minNoise: -10
+  maxNoise: 10
 --- !u!65 &8185093445346225329
 BoxCollider:
   m_ObjectHideFlags: 0
