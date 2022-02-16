@@ -93,7 +93,7 @@ public class TorusPhysics : MonoBehaviour
 
     void OnButtonPush(int index, float value)
     {
-        float buttonUpForce = 200.0f;
+        float buttonUpForce = 120.0f;
         if (zones[index].IsInZone())
         {
             rb.AddForce(zones[index].GetNoise().x, buttonUpForce * value, zones[index].GetNoise().z);

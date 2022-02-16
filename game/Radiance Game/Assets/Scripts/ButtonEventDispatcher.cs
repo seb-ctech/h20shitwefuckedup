@@ -20,7 +20,7 @@ public class PressureButton
     private bool record = false;
     private bool buttonPressed = false;
     private int tickCount = 0;
-    private int maxTicks = 10;
+    private int maxTicks = 20;
     private float value;
     
     public PressureButton(int _index){
@@ -107,7 +107,7 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     void ArrowKeyControls()
     {
-        float defaultValue = 0.3f;
+        float defaultValue = 0.6f;
         
         // AssignButtonEventByKey("up", 0, defaultValue);
         AssignButtonEventByKey("left", 1, defaultValue);
