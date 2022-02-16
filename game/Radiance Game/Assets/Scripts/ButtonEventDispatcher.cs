@@ -109,7 +109,7 @@ public class ButtonEventDispatcher : MonoBehaviour
     {
         float defaultValue = 0.6f;
         
-        // AssignButtonEventByKey("up", 0, defaultValue);
+        AssignButtonEventByKey("up", 0, defaultValue);
         AssignButtonEventByKey("left", 1, defaultValue);
         AssignButtonEventByKey("down", 2, defaultValue);
         AssignButtonEventByKey("right", 3, defaultValue);
