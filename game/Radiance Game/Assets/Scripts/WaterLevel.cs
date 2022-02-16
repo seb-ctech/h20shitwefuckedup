@@ -39,7 +39,7 @@ public class WaterLevel : MonoBehaviour
 
     public void LeakWater()
     {
-        float rate = releaseRate / 1000000.0f;
+        float rate = releaseRate / 10000.0f;
         // Debug.Log("Water Release Rate: " + rate);
         waterLeak = Mathf.Clamp(waterLeak + rate, 0.0f, 1.0f);
         waterLevel = Mathf.Clamp(waterLevel - rate, 0.0f, 1.0f);
@@ -50,6 +50,11 @@ public class WaterLevel : MonoBehaviour
         {
             LeakWater();
         }
+    }
+
+    public void Reset(){
+        waterLevel = 1.0f;
+        waterLeak = 0.0f;
     }
 
     void SetSurfacePositionByLevel(float level)
