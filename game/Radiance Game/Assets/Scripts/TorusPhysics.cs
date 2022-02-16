@@ -93,7 +93,7 @@ public class TorusPhysics : MonoBehaviour
 
     void OnButtonPush(int index, float value)
     {
-        float buttonUpForce = 100.0f;
+        float buttonUpForce = 200.0f;
         if (zones[index].IsInZone())
         {
             rb.AddForce(zones[index].GetNoise().x, buttonUpForce * value, zones[index].GetNoise().z);
@@ -156,7 +156,7 @@ public class TorusPhysics : MonoBehaviour
     {
         if (zone.gameObject.name == "Zone_1")
         {
-            Debug.Log("Collision exit " + zone.gameObject.name);
+            // Debug.Log("Collision exit " + zone.gameObject.name);
             zones[0].SetInside(false);
         }
         else if (zone.gameObject.name == "Zone_2")

@@ -32,7 +32,6 @@ public class BubbleManager : MonoBehaviour {
     void OnButtonPush(int index, float value)
 
     {
-        Debug.Log(value);
         StartParticles(index,value);
     }
 
@@ -40,8 +39,8 @@ public class BubbleManager : MonoBehaviour {
     {
         ParticleSystem particle = particleSystems[index];
         var emission = particle.emission;
-        emission.rateOverTime = buttonStrength*20.0f;
-        Debug.Log("Start Bubbles");
+        emission.rateOverTime = buttonStrength*10.0f;
+        // Debug.Log("Start Bubbles");
         particle.Play();
 
         float waterLevel = wl.GetWaterLevel(); //here: get water level

@@ -50,9 +50,11 @@ public class PressureButton
 
         if (record)
         {
+            Debug.Log("Recording...");
             if (tickCount <= maxTicks)
             {
                 tickCount++;
+                Debug.Log("Ticks: " + tickCount);
             } else {
                 ResetRecording();
             }
@@ -77,8 +79,6 @@ public class PressureButton
     }
 
 }
-
-
 
 public class ButtonEventDispatcher : MonoBehaviour
 {
@@ -107,45 +107,33 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     void ArrowKeyControls()
     {
-        float defaultValue = 0.1f;
-        if (Input.GetKey("up"))
-        {
-            eBtnPressed.Invoke(0, defaultValue);
+        float defaultValue = 0.3f;
+        
+        // AssignButtonEventByKey("up", 0, defaultValue);
+        AssignButtonEventByKey("left", 1, defaultValue);
+        AssignButtonEventByKey("down", 2, defaultValue);
+        AssignButtonEventByKey("right", 3, defaultValue);
+    }
+
+    private void AssignButtonEventByKey(string key, int index, float defaultValue){
+        if (Input.GetKey(key))
+        {   
+            if (Time.frameCount % 4 == 0){
+                pressureButtons[index].HandleNewValue(defaultValue);
+                if(pressureButtons[index].IsRecording()){
+                    eBtnPressed.Invoke(index, defaultValue);
+                    Debug.Log("Key pressed: " + key);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(key)){
+            eBtnEdge.Invoke(index);
+        }
+
+        if (Input.GetKeyUp(key)){
+            pressureButtons[index].HandleNewValue(0.0f);
             AfterButtonPress();
-        }
-
-        if (Input.GetKeyDown("up")){
-            eBtnEdge.Invoke(0);
-        }
-
-        if (Input.GetKey("left"))
-        {
-            eBtnPressed.Invoke(1, defaultValue);
-            AfterButtonPress();
-        }
-
-        if (Input.GetKeyDown("left")){
-            eBtnEdge.Invoke(1);
-        }
-
-        if (Input.GetKey("right"))
-        {
-            eBtnPressed.Invoke(2, defaultValue);
-            AfterButtonPress();
-        }
-
-        if (Input.GetKeyDown("right")){
-            eBtnEdge.Invoke(2);
-        }
-
-        if (Input.GetKey("down"))
-        {
-            eBtnPressed.Invoke(3, defaultValue);
-            AfterButtonPress();
-        }
-
-        if (Input.GetKeyDown("down")){
-            eBtnEdge.Invoke(3);
         }
     }
 

@@ -17,6 +17,7 @@ public class ButtonMessageReader : MonoBehaviour
 {
     public SerialController serialController;
     private ButtonEventDispatcher buttonDispatcher;
+    private int serialTicks = 0;
     // Initialization
     void Start()
     {
@@ -39,14 +40,25 @@ public class ButtonMessageReader : MonoBehaviour
 
     private void ParseMessage(string message)
     {
-        string[] protocol = message.Split(':');
-        if (protocol.Length > 1)
-        {
-            int buttonIndex = Int32.Parse(protocol[0]);
-            int buttonValue = Int32.Parse(protocol[1]);
-            buttonDispatcher.ProcessButtonInput(buttonIndex, buttonValue);
-            // Debug.Log("Button " + buttonIndex + " pressed: " + buttonValue);
+        if (true){
+            string[] protocol = message.Split(':');
+            if (protocol.Length > 1)
+            {
+                int buttonIndex = Int32.Parse(protocol[0]);
+                int buttonValue = Int32.Parse(protocol[1]);
+                buttonDispatcher.ProcessButtonInput(buttonIndex, buttonValue);
+                // Debug.Log("Button " + buttonIndex + " pressed: " + buttonValue);
+            }
         }
+    }
+
+    private bool EvaluateSerialTicks(){
+        serialTicks = (serialTicks + 1) % 1000;
+        // Debug.Log(serialTicks);
+        if (serialTicks % 1 == 0){
+            return true;
+        }
+        return false;
     }
 
 
