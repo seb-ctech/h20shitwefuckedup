@@ -52,6 +52,11 @@ public class WaterLevel : MonoBehaviour
         }
     }
 
+    public void Reset(){
+        waterLevel = 1.0f;
+        waterLeak = 0.0f;
+    }
+
     void SetSurfacePositionByLevel(float level)
     {
         float height = level - 0.5f;

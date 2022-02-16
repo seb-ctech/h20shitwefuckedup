@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class ButtonEvent : UnityEvent<int, float>
 {
@@ -103,6 +104,16 @@ public class ButtonEventDispatcher : MonoBehaviour
     void Update()
     {
         ArrowKeyControls();
+        if(Input.GetKeyDown("space")){
+            RestartScene();
+        }
+    }
+
+    //TODO: Refactor to own component
+    private void RestartScene(){
+        // string currentScene = SceneManager.GetActiveScene().name;
+        // SceneManager.LoadScene(currentScene);
+        wl.Reset();
     }
 
     void ArrowKeyControls()
