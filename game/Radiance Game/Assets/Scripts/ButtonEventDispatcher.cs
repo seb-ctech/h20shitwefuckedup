@@ -118,7 +118,7 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     void ArrowKeyControls()
     {
-        float defaultValue = 0.6f;
+        float defaultValue = 0.5f;
         
         AssignButtonEventByKey("up", 0, defaultValue);
         AssignButtonEventByKey("left", 1, defaultValue);
@@ -160,9 +160,9 @@ public class ButtonEventDispatcher : MonoBehaviour
         bool trigger = targetButton.HandleNewValue(value);
         if (targetButton.IsRecording()){
             eBtnPressed.Invoke(index, targetButton.GetValue());
-            AfterButtonPress();
         }
         if (trigger){
+            AfterButtonPress();
             eBtnEdge.Invoke(index);
             Debug.Log("Button " + index + " Pressed!");
         }

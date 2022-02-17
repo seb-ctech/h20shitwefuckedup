@@ -53,9 +53,9 @@ public class ButtonMessageReader : MonoBehaviour
     }
 
     private bool EvaluateSerialTicks(){
-        serialTicks = (serialTicks + 1) % 1000;
+        serialTicks = (serialTicks + 1);
         // Debug.Log(serialTicks);
-        if (serialTicks % 1 == 0){
+        if (serialTicks % 5 == 0){
             return true;
         }
         return false;
