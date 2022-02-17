@@ -23,7 +23,7 @@ public class PressureButton
     private int tickCount = 0;
     private int maxTicks = 20;
     private float value;
-    
+
     public PressureButton(int _index){
         index = _index;
     }
@@ -88,6 +88,7 @@ public class ButtonEventDispatcher : MonoBehaviour
     private ButtonEventEdge eBtnEdge;
     private PressureButton[] pressureButtons;
     private WaterLevel wl;
+    private Camera[] cameras;
 
     void Start()
     {
@@ -98,12 +99,14 @@ public class ButtonEventDispatcher : MonoBehaviour
             pressureButtons[i] = new PressureButton(i);
         }
         wl = GameObject.Find("WaterTank").GetComponent<WaterLevel>();
+        cameras = Object.FindObjectsOfType<Camera>();
     }
 
 
     void Update()
     {
         ArrowKeyControls();
+        CameraControls();
         if(Input.GetKeyDown("space")){
             RestartScene();
         }
@@ -179,6 +182,31 @@ public class ButtonEventDispatcher : MonoBehaviour
 
     private void AfterButtonPress(){
         wl.LeakWater();
+    }
+
+    private void CameraControls(){
+        
+        if(Input.GetKeyDown(KeyCode.Alpha1)){
+            SwitchActiveCamera(0);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            SwitchActiveCamera(1);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3)){
+            SwitchActiveCamera(2);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha4)){
+            SwitchActiveCamera(3);
+        }
+    }
+
+    private void SwitchActiveCamera(int index){
+        for(int i = 0; i < cameras.Length; i++){
+            if(i != index){
+                cameras[i].gameObject.SetActive(false);
+            }
+        }
+        cameras[index].gameObject.SetActive(true);
     }
 
 }
