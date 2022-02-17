@@ -12716,7 +12716,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906664232}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 73bcc1c2494ee424b806cf3fba34af99, type: 3}
@@ -23911,9 +23911,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 246833222}
     m_Modifications:
+    - target: {fileID: 5872062244912741073, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872062244912741074, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741075, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_TargetDisplay
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741085, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -23976,9 +23984,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 246833222}
     m_Modifications:
+    - target: {fileID: 5872062244912741073, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872062244912741074, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741075, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_TargetDisplay
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741085, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -26203,13 +26219,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 246833222}
     m_Modifications:
+    - target: {fileID: 5872062244912741073, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_TagString
+      value: MainCamera
+      objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741074, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741075, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_TargetDisplay
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741085, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -27126,6 +27146,10 @@ PrefabInstance:
     - target: {fileID: 5872062244912741073, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_TagString
       value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872062244912741074, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5872062244912741085, guid: 7c169c9507e6d3047b5ee930247a7a91, type: 3}
       propertyPath: m_RenderPostProcessing
