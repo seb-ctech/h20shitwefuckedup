@@ -21,11 +21,13 @@ public class ServerSendData : MonoBehaviour
     public String lanIp;
     public int port = 10000;
     private float testCounter;
+    private WaterLevel wl;
     #endregion
 
     void Start()
     {
         StartListenerThread();
+        wl = GameObject.Find("WaterTank").GetComponent<WaterLevel>();
         testCounter = 0;
     }
 
@@ -39,17 +41,8 @@ public class ServerSendData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-        }
-        if (Time.frameCount % 25 == 0)
-        {
-
-            float a = UnityEngine.Random.Range(-1.0f, 1.0f);
-            SendMessage(testCounter);
-            testCounter += 0.01f;
-        }
-        // Debug.Log(a);
+        float leakeValue = wl.GetLeakedWater();
+        SendMessage(leakeValue);
     }
 
     private void ListenForIncomingRequests()
@@ -105,8 +98,8 @@ public class ServerSendData : MonoBehaviour
             {
                 string serverMessage = value.ToString();
                 // Convert string message to byte array.                 
-                // byte[] serverValueAsByteArray = BitConverter.GetBytes(serverMessage);
-                byte[] serverValueAsByteArray = Encoding.ASCII.GetBytes(serverMessage);
+                byte[] serverValueAsByteArray = BitConverter.GetBytes(value);
+                // byte[] serverValueAsByteArray = Encoding.ASCII.GetBytes(serverMessage); // <-- For VVVV
                 // Write byte array to socketConnection stream.               
                 stream.Write(serverValueAsByteArray, 0, serverValueAsByteArray.Length);
                 Debug.Log(serverMessage);
